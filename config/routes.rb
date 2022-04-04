@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  scope '/api' do
+    get '/to_dos', to: 'to_dos#index', defaults: { format: :json }
+    get '/to_dos/:id', to: 'to_dos#show', defaults: { format: :json }
+  end
 end
