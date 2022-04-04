@@ -1,0 +1,3 @@
+[submodule "playground-frontend"]
+	path = frontend
+	url = git@github.com-for-shung:shungo11260/playground-frontend.git
