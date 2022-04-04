@@ -1,4 +1,5 @@
 class ToDosController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_to_do, only: %i[ show edit update destroy ]
 
   # GET /to_dos or /to_dos.json
