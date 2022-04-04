@@ -1,0 +1,16 @@
+version: '1'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - "4306:3306"
+  web:
+    build: .
+    volumes:
+      - .:/home/playground/
+    ports:
+      - 3000:3000
+    tty: true
