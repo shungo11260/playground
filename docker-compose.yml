@@ -9,14 +9,23 @@ services:
       - ./my.cnf:/etc/mysql/conf.d/my.cnf
       - database:/var/lib/mysql
     ports:
-      - "4306:3306"
-  web:
+      - "4307:3306"
+  backend:
     build: .
     volumes:
       - .:/home/playground/
       - gems:/usr/local/bundle
     ports:
       - 3000:3000
+    tty: true
+  frontend:
+    build: 
+      context: frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/home/playground/frontend
+    ports:
+      - 3001:8000
     tty: true
 volumes:
   database:
